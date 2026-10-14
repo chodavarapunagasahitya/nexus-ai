@@ -1,12 +1,15 @@
+
 services:
   - type: web
     name: nexusai-creator-marketplace
     env: node
     plan: free
-    buildCommand: npm run build
+    buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
-        value: nexusai_production_jwt_supersecret_key_2026
+        sync: false
+      - key: MONGODB_URI
+        sync: false
